@@ -44,5 +44,64 @@ namespace ManagerApp
             listViewWaterBill.Columns.Add("Total Money", 80);
             listViewWaterBill.Columns.Add("Created At", 100);
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string customer = txtCustomer.Text.Trim();
+            string typeCustomer = cboCustomerType.Text.Trim();
+            //string numberPeople = txtPeople.Text.Trim();
+            string lastWater = txtWaterLastMonth.Text.Trim();
+            string currentWater = txtWaterCurrentMonth.Text.Trim();
+            if (string.IsNullOrEmpty(customer))
+            {
+                MessageBox.Show("Customer is not empty");
+                return;
+            }
+            if (string.IsNullOrEmpty(typeCustomer))
+            {
+                MessageBox.Show("typeCustomer is not empty");
+                return;
+            }
+            if (typeCustomer == "Household")
+            {
+                // da chon loai khac hang la ho gia dinh
+                txtPeople.Enabled = true;
+            }
+            else
+            {
+                // loai khach hang khac
+                txtPeople.Clear();
+                txtPeople.Enabled = false;
+            }
+
+        }
+
+        private void cboCustomerType_DropDownClosed(object sender, EventArgs e)
+        {
+            if (cboCustomerType.SelectedValue == "Household")
+            {
+                txtPeople.Enabled = false;
+            }
+            else
+            {
+                txtPeople.Clear();
+                txtPeople.Enabled = true;
+            }
+        }
+
+        private void cboCustomerType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string val = cboCustomerType.SelectedItem.ToString();
+            val = val.Trim();
+            if (val == "Household")
+            {
+                txtPeople.Enabled = true;
+            }
+            else
+            {
+                txtPeople.Clear();
+                txtPeople.Enabled = false;
+            }
+        }
     }
 }

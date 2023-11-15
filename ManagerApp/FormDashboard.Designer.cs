@@ -189,6 +189,7 @@
             btnAdd.TabIndex = 10;
             btnAdd.Text = "Add +";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // txtWaterCurrentMonth
             // 
@@ -247,6 +248,8 @@
             cboCustomerType.Name = "cboCustomerType";
             cboCustomerType.Size = new Size(246, 23);
             cboCustomerType.TabIndex = 3;
+            cboCustomerType.SelectedIndexChanged += cboCustomerType_SelectedIndexChanged;
+            cboCustomerType.DropDownClosed += cboCustomerType_DropDownClosed;
             // 
             // label4
             // 
