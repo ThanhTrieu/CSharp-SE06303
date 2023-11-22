@@ -54,6 +54,7 @@
             tabPageExit = new TabPage();
             button1 = new Button();
             imageListTabPage = new ImageList(components);
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             tabControlDashboard.SuspendLayout();
             tabPageHome.SuspendLayout();
             tabPageWater.SuspendLayout();
@@ -180,6 +181,7 @@
             btnRemove.TabIndex = 11;
             btnRemove.Text = "Remove Item";
             btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Click += btnRemove_Click;
             // 
             // btnAdd
             // 
@@ -355,5 +357,6 @@
         private Label label7;
         private GroupBox groupBoxData;
         private ListView listViewWaterBill;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
